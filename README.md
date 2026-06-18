@@ -1,31 +1,121 @@
-# pandas-eda-and-cleaning
-**Customer Call List — Data Cleaning Project**
+# Customer Call List Data Cleaning Using Pandas
 
-A data cleaning project in pandas that transforms a messy customer contact list — inconsistent phone formats, stray punctuation, combined address fields, duplicates, and irregular missing-value representation — into a clean, standardized, and contact-ready dataset.
+## Project Overview
 
-Dataset
-File: Customer Call List.xlsx
-Columns: CustomerID, First_Name, Last_Name, Phone_Number, Address, Paying Customer, Do_Not_Contact, Not_Useful_Column
-Issues in the raw data: duplicate rows, phone numbers in multiple inconsistent formats, names with leading/trailing junk characters, a single address field combining street/state/zip, and missing values represented inconsistently (NaN and the string "N/a").
+This project focuses on cleaning and transforming a raw customer contact dataset using Python and Pandas. The original dataset contained duplicate records, inconsistent phone number formats, unstructured address information, missing values, and customer records that were not suitable for outreach activities.
 
+The objective was to convert the raw dataset into a clean, standardized, and analysis-ready customer contact list that could be used for CRM systems, reporting, or marketing campaigns.
 
-Tools & Libraries:
-Python 3
-pandas
-openpyxl (for reading .xlsx files)
+---
 
+## Dataset Information
 
-Cleaning Workflow:-
-Remove duplicates — drop_duplicates() to eliminate exact duplicate rows.
-Drop irrelevant columns — removed Not_Useful_Column.
-Clean names — stripped stray leading/trailing characters from Last_Name (digits, periods, underscores, slashes).
-Standardize phone numbers — removed all non-alphanumeric characters via regex, then reformatted into a consistent XXX-XXX-XXXX pattern, cleaning up leftover artifacts from missing values along the way.
-Split address field — separated the combined Address column into Street_Address, State, and Zip_code.
-Standardize categorical flags — converted Yes/No values to Y/N in Paying Customer and Do_Not_Contact.
-Unify missing values — replaced both NaN and the literal string "N/a" with a consistent blank representation.
-Apply business rules — removed customers flagged Do_Not_Contact, and removed customers with no usable phone number.
-Reset index — produced a clean, sequentially indexed final dataset.
+**Dataset:** Customer Call List.xlsx
 
+### Features
 
-Result:-
-A deduplicated, standardized customer list containing only contactable, opted-in customers, with consistent name formatting, phone number formatting, and split address fields ready for downstream use (e.g. a CRM import or an actual outreach call list).
+* CustomerID
+* First_Name
+* Last_Name
+* Phone_Number
+* Address
+* Paying Customer
+* Do_Not_Contact
+* Not_Useful_Column
+
+### Data Quality Issues Identified
+
+* Duplicate customer records
+* Inconsistent phone number formats
+* Unstructured address information
+* Special characters in customer names
+* Missing values represented in multiple formats
+* Unnecessary columns
+* Customers marked as "Do Not Contact"
+
+---
+
+## Tools and Technologies
+
+* Python
+* Pandas
+* OpenPyXL
+* Jupyter Notebook
+
+---
+
+## Data Cleaning Process
+
+### 1. Duplicate Removal
+
+Removed duplicate customer records using Pandas to ensure data accuracy and prevent duplicate outreach.
+
+### 2. Column Optimization
+
+Dropped irrelevant columns that did not contribute to business analysis or customer communication processes.
+
+### 3. Name Standardization
+
+Cleaned customer names by removing unwanted characters such as digits, periods, underscores, and other special symbols.
+
+### 4. Phone Number Formatting
+
+Standardized phone numbers into a consistent format (XXX-XXX-XXXX) using regular expressions, making the dataset suitable for communication and CRM integration.
+
+### 5. Address Transformation
+
+Split the combined address field into:
+
+* Street Address
+* State
+* Zip Code
+
+This improved data usability for reporting and location-based analysis.
+
+### 6. Categorical Data Standardization
+
+Converted Yes/No values into a consistent Y/N format across customer status fields.
+
+### 7. Missing Value Handling
+
+Identified and standardized missing values represented as both NaN and "N/a" to maintain consistency throughout the dataset.
+
+### 8. Business Rule Implementation
+
+Applied business requirements by:
+
+* Removing customers marked as "Do Not Contact"
+* Removing records without valid phone numbers
+
+### 9. Final Dataset Preparation
+
+Reset indexes and produced a clean, structured dataset ready for downstream business use.
+
+---
+
+## Key Outcomes
+
+* Improved overall data quality and consistency
+* Eliminated duplicate and invalid records
+* Standardized customer contact information
+* Enhanced dataset usability for CRM and marketing operations
+* Created a clean and business-ready customer database
+
+---
+
+## Skills Demonstrated
+
+* Data Cleaning
+* Data Transformation
+* Data Validation
+* Missing Value Handling
+* Regular Expressions (Regex)
+* String Manipulation
+* Business Rule Implementation
+* Pandas Data Analysis
+
+---
+
+## Project Result
+
+Successfully transformed a messy customer contact dataset into a clean, standardized, and contact-ready customer database suitable for CRM imports, customer outreach campaigns, and further business analysis.
